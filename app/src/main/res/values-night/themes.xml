@@ -2,13 +2,13 @@
     <!-- Base application theme. -->
     <style name="Theme.LimitedLauncher" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@android:color/darker_gray</item>
-        <item name="colorPrimaryVariant">@android:color/darker_gray</item>
-        <item name="colorOnPrimary">@android:color/darker_gray</item>
+        <item name="colorPrimary">@android:color/holo_green_dark</item>
+        <item name="colorPrimaryVariant">@android:color/holo_green_dark</item>
+        <item name="colorOnPrimary">@android:color/holo_green_dark</item>
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@android:color/white</item>
-        <item name="colorSecondaryVariant">@android:color/white</item>
-        <item name="colorOnSecondary">@android:color/white</item>
+        <item name="colorSecondary">@android:color/black</item>
+        <item name="colorSecondaryVariant">@android:color/black</item>
+        <item name="colorOnSecondary">@android:color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">@android:color/transparent</item>
         <!-- Customize your theme here. -->

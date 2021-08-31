@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
     public static ArrayMap<Integer, App> chosenApps = new ArrayMap(3);
     public static List<App> apps = new ArrayList<>();
-    public static String bruh = "bruh";
+    public static boolean buttonsEnabled = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -135,6 +135,60 @@ public class MainActivity extends AppCompatActivity {
                 Log.d("bruh", chosenApps.get(3).packageName);
                 Intent launchIntent = getPackageManager().getLaunchIntentForPackage(chosenApps.get(3).packageName);
                 startActivity(launchIntent);
+            }
+        });
+
+        if(buttonsEnabled) {
+            edit1.setEnabled(true);
+            edit2.setEnabled(true);
+            edit3.setEnabled(true);
+            edit4.setEnabled(true);
+
+            edit1.setAlpha(1f);
+            edit2.setAlpha(1f);
+            edit3.setAlpha(1f);
+            edit4.setAlpha(1f);
+        } else {
+            edit1.setEnabled(false);
+            edit2.setEnabled(false);
+            edit3.setEnabled(false);
+            edit4.setEnabled(false);
+
+            edit1.setAlpha(0f);
+            edit2.setAlpha(0f);
+            edit3.setAlpha(0f);
+            edit4.setAlpha(0f);
+        }
+
+        Button invisible = findViewById(R.id.invisible);
+        invisible.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (buttonsEnabled) {
+                    edit1.setEnabled(false);
+                    edit2.setEnabled(false);
+                    edit3.setEnabled(false);
+                    edit4.setEnabled(false);
+
+                    edit1.setAlpha(0f);
+                    edit2.setAlpha(0f);
+                    edit3.setAlpha(0f);
+                    edit4.setAlpha(0f);
+
+                    buttonsEnabled = false;
+                } else {
+                    edit1.setEnabled(true);
+                    edit2.setEnabled(true);
+                    edit3.setEnabled(true);
+                    edit4.setEnabled(true);
+
+                    edit1.setAlpha(1f);
+                    edit2.setAlpha(1f);
+                    edit3.setAlpha(1f);
+                    edit4.setAlpha(1f);
+
+                    buttonsEnabled = true;
+                }
             }
         });
     }

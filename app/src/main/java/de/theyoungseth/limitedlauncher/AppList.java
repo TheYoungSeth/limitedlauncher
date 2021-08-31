@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatDialogFragment;
 
@@ -65,14 +66,29 @@ public class AppList extends AppCompatDialogFragment {
                         chosenApp = apps.get(i);
                     }
                 })
-                .setNeutralButton("OK", new DialogInterface.OnClickListener() {
+                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Log.d("bruh", chosenApp.name);
-                        label.setText(chosenApp.name);
-                        icon.setImageDrawable(chosenApp.icon);
-                        MainActivity.chosenApps.put(currentEdit, chosenApp);
-                        MainActivity.saveListData(getContext());
+                        if(chosenApp != null) {
+                            Log.d("bruh", chosenApp.name);
+                            label.setText(chosenApp.name);
+                            icon.setImageDrawable(chosenApp.icon);
+                            MainActivity.chosenApps.put(currentEdit, chosenApp);
+                            MainActivity.saveListData(getContext());
+                        } else {
+                            chosenApp = apps.get(0);
+                            Log.d("bruh", chosenApp.name);
+                            label.setText(chosenApp.name);
+                            icon.setImageDrawable(chosenApp.icon);
+                            MainActivity.chosenApps.put(currentEdit, chosenApp);
+                            MainActivity.saveListData(getContext());
+                        }
+                    }
+                })
+                .setNegativeButton("Abbrechen", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        dialogInterface.cancel();
                     }
                 });
 
